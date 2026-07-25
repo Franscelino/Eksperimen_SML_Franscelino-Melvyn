@@ -1,0 +1,31 @@
+name: CI Workflow MLflow Project
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-mlflow-project:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python 3.12.7
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12.7'
+
+      - name: Install Dependencies
+        run: |
+          pip install mlflow==2.19.0 scikit-learn pandas numpy
+
+      - name: Run MLflow Project
+        run: |
+          # Pindah ke direktori MLProject dan jalankan MLflow run
+          cd MLProject
+          # Kita gunakan --no-conda agar menggunakan dependencies yang terinstall via pip
+          mlflow run . --no-conda
