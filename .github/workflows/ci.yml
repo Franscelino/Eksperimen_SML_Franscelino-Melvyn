@@ -27,5 +27,5 @@ jobs:
         run: |
           # Pindah ke direktori MLProject dan jalankan MLflow run
           cd MLProject
-          # Kita gunakan --no-conda agar menggunakan dependencies yang terinstall via pip
-          mlflow run . --no-conda
+          # Gunakan --env-manager=local karena --no-conda sudah deprecated di mlflow versi baru
+          mlflow run . --env-manager=local
