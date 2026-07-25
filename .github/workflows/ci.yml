@@ -29,4 +29,4 @@ jobs:
           cd MLProject
           mkdir -p mlruns
           # Gunakan --env-manager=local karena --no-conda sudah deprecated di mlflow versi baru
-          mlflow run . --env-manager=local
+          mlflow run . --env-manager=local --experiment-name Analyst_Rating_Prediction_CI
